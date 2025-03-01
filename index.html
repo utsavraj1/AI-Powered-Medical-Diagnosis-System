@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Medical Diagnosis System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        #symptomInput {
+            margin: 20px 0;
+            padding: 10px;
+            width: 300px;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI-Powered Medical Diagnosis System</h1>
+    <input type="text" id="symptomInput" placeholder="Enter symptoms (comma separated)" />
+    <button id="diagnoseButton">Get Diagnosis</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('diagnoseButton').addEventListener('click', function() {
+            const symptoms = document.getElementById('symptomInput').value.split(',').map(symptom => symptom.trim());
+            fetch('/diagnose', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ symptoms: symptoms })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Possible Diagnosis: ' + data.diagnosis.join(', ');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'An error occurred while fetching the diagnosis.';
+            });
+        });
+    </script>
+</body>
+</html>
