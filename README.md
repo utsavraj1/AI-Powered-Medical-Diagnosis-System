@@ -34,7 +34,7 @@ pip install -r requirements.txt
 1. Prepare your dataset and place it in the appropriate folder.
 2. Train the model using:
    ```bash
-   python train.py
+   python train_model.py
    ```
 3. Evaluate the model using:
    ```bash
@@ -44,10 +44,15 @@ pip install -r requirements.txt
    ```bash
    python predict.py --image <image_path>
    ```
+5. 3️⃣ Run the app
+
+   ```bash
+   streamlit run app.py
+   ```
 
 ## Dataset
 The project uses publicly available medical datasets, such as:
-- Kaggle medical datasets
+- Kaggle medical datasets (https://www.kaggle.com/datasets/mohammadamireshraghi/blood-cell-cancer-all-4class)
 - NIH Chest X-ray dataset
 - Other open-source medical image datasets
 
@@ -72,4 +77,5 @@ This project is licensed under the MIT License.
 For any queries, contact:
 - **Utsav Raj**  
   GitHub: [@utsavraj1](https://github.com/utsavraj1)  
-  Email: [Your Email Here]
+  Email: utshavraj.ur321@gmail.com
+  Linkedin: https://www.linkedin.com/in/utsavraj123/
